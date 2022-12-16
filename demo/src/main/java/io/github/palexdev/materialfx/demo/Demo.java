@@ -33,7 +33,8 @@ public class Demo extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		CSSFX.start();
-
+        //Better antialising for custom fonts in JavaFX. See https://stackoverflow.com/questions/24254000/how-to-force-anti-aliasing-in-javafx-fonts
+		System.setProperty("prism.lcdtext", "false");
 		FXMLLoader loader = new FXMLLoader(MFXDemoResourcesLoader.loadURL("fxml/Demo.fxml"));
 		loader.setControllerFactory(c -> new DemoController(primaryStage));
 		Parent root = loader.load();
