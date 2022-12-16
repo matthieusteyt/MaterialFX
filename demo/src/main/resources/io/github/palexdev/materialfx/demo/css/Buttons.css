@@ -71,3 +71,18 @@
 .link-button .mfx-ripple-generator {
 	-mfx-ripple-color: #D9E9FF;
 }
+
+.toggle-button {
+	-fx-background-color: transparent;
+	-fx-border-color: -mfx-purple;
+	-fx-border-radius: 3;
+
+	-fx-text-fill: -mfx-purple;
+}
+
+.toggle-button:selected,
+.toggle-button:focused:selected {
+	-fx-background-color: -mfx-purple;
+	-fx-text-fill: white;
+}
+

@@ -1,0 +1,37 @@
+@import "Fonts.css";
+@import "MFXColors.css";
+
+.mfx-classic-toggle-button {
+	-mfx-unselected-color: white;
+	-mfx-selected-color: #EDEDED;
+	-mfx-unselected-border-color: #E1E1E1;
+	-mfx-selected-border-color: #E1E1E1;
+}
+
+.mfx-classic-toggle-button {
+	-fx-font-family: "Open Sans Regular";
+	-fx-text-fill: -mfx-text-he;
+}
+
+.mfx-classic-toggle-button,
+.mfx-classic-toggle-button:armed,
+.mfx-classic-toggle-button:hover,
+.mfx-classic-toggle-button:focused,
+.mfx-classic-toggle-button:selected,
+.mfx-classic-toggle-button:focused:selected {
+	-fx-background-color: TRANSPARENT, TRANSPARENT, TRANSPARENT, TRANSPARENT;
+	-fx-background-radius: 3px;
+	-fx-background-insets: 0px;
+}
+
+.mfx-classic-toggle-button {
+	-fx-background-color: -mfx-unselected-color;
+	-fx-border-color: -mfx-unselected-border-color;
+}
+
+.mfx-classic-toggle-button:selected,
+.mfx-classic-toggle-button:focused:selected {
+	-fx-background-color: -mfx-selected-color;
+	-fx-border-color: -mfx-selected-border-color;
+}
+

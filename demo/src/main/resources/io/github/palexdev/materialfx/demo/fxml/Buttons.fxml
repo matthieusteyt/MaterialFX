@@ -98,4 +98,6 @@
     <Label styleClass="header-label" text="Other Buttons" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
     <MFXButton minHeight="27.0" minWidth="70.0" styleClass="link-button" text="Link Button" GridPane.columnIndex="5"
                GridPane.rowIndex="4"/>
+    <MFXClassicToggleButton minHeight="27.0" minWidth="70.0" styleClass="toggle-button" text="Toggle Button" GridPane.columnIndex="6"
+               GridPane.rowIndex="4"/>
 </GridPane>
