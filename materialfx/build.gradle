@@ -3,9 +3,12 @@ import org.apache.tools.ant.taskdefs.condition.Os
 plugins {
     id 'java-library'
     id 'biz.aQute.bnd.builder' version '6.2.0'
-    id 'com.vanniktech.maven.publish' version '0.19.0'
+    id 'maven-publish'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
+
+group 'io.github.palexdev'
+version = materialfx_version
 
 repositories {
     mavenCentral()
@@ -99,6 +102,73 @@ build {
     dependsOn shadowJar, copyJar, removeBnd
 }
 
-mavenPublish {
-    sonatypeHost = "S01"
+//mavenPublish {
+//    sonatypeHost = "S01"
+//}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            afterEvaluate {
+                artifact sourcesJarBuild
+                artifact javadocJar
+            }
+
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+
+            pom {
+                name = 'materialfx'
+                description = 'Material Desgin components for JavaFX'
+                url = 'https://github.com/palexdev/MaterialFX'
+                licenses {
+                    license {
+                        name = 'GNU LGPLv3'
+                        url = 'https://www.gnu.org/licenses/gpl-3.0.html'
+                        distribution = 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        name = 'palexdev'
+                        email = 'Alessandro Parisi'
+                        url= 'https://github.com/palexdev'
+                        roles = [
+                                'author',
+                                'developer'
+                        ]
+                    }
+                }
+            }
+        }
+    }
 }
+
+//GROUP=io.github.palexdev
+//POM_ARTIFACT_ID=materialfx
+//VERSION_NAME=11.13.5
+//
+//POM_NAME=materialfx
+//POM_DESCRIPTION=Material Desgin components for JavaFX
+//POM_INCEPTION_YEAR=2020
+//
+//POM_URL=https://github.com/palexdev/MaterialFX
+//POM_SCM_URL=https://github.com/palexdev/MaterialFX
+//
+//POM_LICENCE_NAME=GNU LGPLv3
+//POM_LICENCE_URL=https://www.gnu.org/licenses/gpl-3.0.html
+//POM_LICENCE_DIST=repo
+//
+//POM_DEVELOPER_ID=palexdev
+//POM_DEVELOPER_NAME=Alessandro Parisi
+//POM_DEVELOPER_URL=https://github.com/palexdev
+//
+//POM_PACKAGING=jar
+
